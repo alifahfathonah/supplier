@@ -1,92 +1,116 @@
-<div class="panel panel-default">
-  <!-- Default panel contents -->
-  <div class="panel-heading">DATABASE MATERIAL</div>
-  <div class="panel-body">
+ <?php
+include'../../class/supplier_class.php';
+include'../../class/function.php';
+$db = new Database();
+$db->connectMySQL();
+$supplier = new supplier();
+$material = new material();
+?>
  <table id="example" class="table table-hover">
     <thead>
       <tr>
         <th>ID</th>
-        <th>Unit</th>
-        <th>Jabatan</th>
-        <th>Jml Keb</th>
-        <th>Gender</th>
-        <th>Usia</th>
-        <th>Pendidikan</th>
-        <th>Pengalaman</th>
-        <th>Date</th>
-        <th>Aksi</th>
+        <th>Nama Material</th>
+        <th>Satuan</th>
+        <th>Harga</th>
+        <th>Supplier</th>
+        <th>Telpon</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
-          
+     <?php
+      $arraymat=$material->showmat();
+      if (count($arraymat)) {
+      foreach($arraymat as $d) {
+    ?>
       <tr>
-        <td>10001</td>
-        <td><strong>IT Departemen</strong></td>
-        <td>PHP Programmer / Web Programmer</td>
-        <td>3</td>
-        <td>L</td>
-        <td>20 s/d 30 Thn</td>
-        <td>S1 (Teknology Informasi/Ilmu Komputer)</td>
-        <td>1 Tahun</td>
-        <td><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>24 Juli 2016</td>
-        <td><a class="btn btn-info btn-xs edit-record" href="#" role="button" data-id="10001">Detail</a>&nbsp;
-            <a class="btn btn-default btn-xs disabled" href="?r=info&pg=info_form&id_approve=10001" role="button">Approve</a>&nbsp;
-            <a href="?r=fpk&pg=fpk_edit&id_fpk=10001" class="btn btn-warning btn-xs disabled" role="button">Edit</a></td>
+        <td><?php echo $d['id_mat']; ?></td>
+        <td><?php echo $d['nm_mat']; ?></td>
+        <td><?php echo $d['satuan']; ?></td>
+        <td>10.000.000</td>
+        <td><?php echo $d['nm_supp']; ?></td>
+        <td><?php echo $d['telp']; ?></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><a href="?r=fpk&pg=fpk_edit&id_fpk=10001" class="btn btn-warning btn-xs disabled" role="button">Edit</a></td>
         
       </tr>
-
-      <tr>
-        <td>10003</td>
-        <td><strong>Marketing</strong></td>
-        <td>Marketing / Digital Marketing</td>
-        <td>2</td>
-        <td>L</td>
-        <td>20 s/d 20 Thn</td>
-        <td>S1 Management</td>
-        <td>2 Tahun</td>
-        <td><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>24 Juli 2016</td>
-        <td><a class="btn btn-info btn-xs edit-record" href="#" role="button" data-id="10003">Detail</a>&nbsp;
-            <a class="btn btn-default btn-xs disabled" href="?r=info&pg=info_form&id_approve=10003" role="button">Approve</a>&nbsp;
-            <a href="?r=fpk&pg=fpk_edit&id_fpk=10003" class="btn btn-warning btn-xs disabled" role="button">Edit</a></td>
-        
-      </tr>
-
-      <tr>
-        <td>10002</td>
-        <td><strong>Finance</strong></td>
-        <td>Accounting / Tax Consulting</td>
-        <td>2</td>
-        <td>P</td>
-        <td>20 s/d 30 Thn</td>
-        <td>S1 Akuntasi / Manajemen Keuangan</td>
-        <td>1 Tahun</td>
-        <td><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>24 Juli 2016</td>
-        <td><a class="btn btn-info btn-xs edit-record" href="#" role="button" data-id="10002">Detail</a>&nbsp;
-            <a class="btn btn-default btn-xs disabled" href="?r=info&pg=info_form&id_approve=10002" role="button">Approve</a>&nbsp;
-            <a href="?r=fpk&pg=fpk_edit&id_fpk=10002" class="btn btn-warning btn-xs disabled" role="button">Edit</a></td>
-        
-      </tr>
-
-      <tr>
-        <td>10004</td>
-        <td><strong>Administrasi</strong></td>
-        <td>Administrasi</td>
-        <td>2</td>
-        <td>L/P</td>
-        <td>20 s/d 30 Thn</td>
-        <td>S1 Management</td>
-        <td>1 Tahun</td>
-        <td><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>24 Juli 2016</td>
-        <td><a class="btn btn-info btn-xs edit-record" href="#" role="button" data-id="10004">Detail</a>&nbsp;
-            <a class="btn btn-primary btn-xs " href="?r=info&pg=info_form&id_approve=10004" role="button">Approve</a>&nbsp;
-            <a href="?r=fpk&pg=fpk_edit&id_fpk=10004" class="btn btn-warning btn-xs " role="button">Edit</a></td>
-        
-      </tr>
-
+<?php 
+}
+}
+?>
     </tbody>
   </table>
- <a class="btn btn-default btn-xs" href="?r=fpk&pg=fpk_form" role="button">Tambah Data</a>
+ <a class="btn btn-default btn-xs add-material" href="?r=fpk&pg=fpk_form" role="button">Tambah Data</a>
 
-</div>
-</div>
 
+<!-- MODAL FORM SUPPLIER -->
+<div class="modal fade" id="modal-material" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <form action="" method="post">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabel"></h4>
+                    </div>
+                    <div class="modal-body">
+                    </div>
+                    <div class="modal-footer">
+                        <input type="submit" name="simpan" value="Simpan" class="btn btn-primary" >
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        
+                    </div>
+                </div>
+                </form>
+<?php
+ if($_POST['simpan']){
+  $material->addmaterial(
+  $_POST['id_mat'],  
+  $_POST['id_supp'],
+  $_POST['nm_mat'],
+  $_POST['satuan'],
+  $_POST['keyword']);
+  echo"<meta http-equiv='refresh' content='0;url=?r=material&pg=material'>";
+ }
+?>
+            </div>
+        </div>
+
+        <!-- MODAL UBAH DATA SUPPLIER -->
+<div class="modal fade" id="modal-ubah-supplier" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <form action="" method="post">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel"></h4>
+                    </div>
+                    <div class="modal-body">
+                    </div>
+                    <div class="modal-footer">
+                        <input type="submit" name="update_supp" value="Update data" class="btn btn-primary" >
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        
+                    </div>
+                </div>
+                </form>
+<?php
+ if($_POST['update_supp']){
+  $supplier->updatesupp(
+  $_POST['id_supp'],  
+  $_POST['nm_supp'],
+  $_POST['alamat'],
+  $_POST['telp'],
+  $_POST['fax'],
+  $_POST['rek'],
+  $_POST['email'],
+  $_POST['date_input']);
+  echo"<meta http-equiv='refresh' content='0;url=?r=supplier&pg=supplier'>";
+ }
+?>
+            </div>
+        </div>

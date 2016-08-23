@@ -10,20 +10,22 @@
                     }   
                 );
             });
-                $(document).on('click','.edit-record',function(e){
+                $(document).on('click','.ubah-supplier',function(e){
                 e.preventDefault();
-                $("#myModal").modal('show');
-                $.get("view/fpk/hasil.php",
-                {id_fpk:$(this).attr('data-id')},
+                $("#modal-ubah-supplier").modal('show');
+                $(".modal-title").html('UBAH SUPPLIER');
+                $.get("view/supplier/supplier_ubah.php",
+                {id_supp:$(this).attr('data-id')},
                  function(html){
                         $(".modal-body").html(html);
                     }   
                 );
             });
-                $(document).on('click','.d-info',function(e){
+                $(document).on('click','.add-material',function(e){
                 e.preventDefault();
-                $("#detail-info").modal('show');
-                $.get("view/info/info_detail.php",
+                $("#modal-material").modal('show');
+                 $(".modal-title").html('TAMBAH MATERIAL');
+                $.get("view/material/material_form.php",
                 {id_info:$(this).attr('data-id')},
                  function(html){
                         $(".modal-body").html(html);

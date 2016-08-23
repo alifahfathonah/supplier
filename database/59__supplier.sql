@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.3.11
+-- version 4.2.11
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 23 Agu 2016 pada 03.16
--- Versi Server: 5.6.24
--- PHP Version: 5.6.8
+-- Generation Time: Aug 23, 2016 at 12:01 PM
+-- Server version: 5.6.21
+-- PHP Version: 5.6.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -23,7 +23,31 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `menu`
+-- Table structure for table `material`
+--
+
+CREATE TABLE IF NOT EXISTS `material` (
+  `id_mat` varchar(7) NOT NULL,
+  `id_supp` varchar(7) NOT NULL,
+  `nm_mat` varchar(100) NOT NULL,
+  `satuan` varchar(20) NOT NULL,
+  `keyword` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `material`
+--
+
+INSERT INTO `material` (`id_mat`, `id_supp`, `nm_mat`, `satuan`, `keyword`) VALUES
+('MAT0001', 'SUP001', 'Tiang listrik', 'Batang', 'tiang 9/200'),
+('MAT0002', 'SUP002', 'Batu pengaman PLN', 'Buah', 'batu'),
+('MAT0003', 'SUP003', 'Cyber Lock', 'Buah', 'Cyber, gembok, pln'),
+('MAT0004', 'SUP002', 'Kanal UNP 150', 'Batang', 'kanal, unp');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `menu`
 --
 
 CREATE TABLE IF NOT EXISTS `menu` (
@@ -38,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `menu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `menu`
+-- Dumping data for table `menu`
 --
 
 INSERT INTO `menu` (`id_menu`, `title`, `folder`, `link`, `level`, `parent`, `icon`, `urut`) VALUES
@@ -51,7 +75,35 @@ INSERT INTO `menu` (`id_menu`, `title`, `folder`, `link`, `level`, `parent`, `ic
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `supplier`
+--
+
+CREATE TABLE IF NOT EXISTS `supplier` (
+  `id_supp` varchar(6) NOT NULL,
+  `nm_supp` varchar(100) NOT NULL,
+  `alamat` varchar(200) NOT NULL,
+  `telp` varchar(30) NOT NULL,
+  `fax` varchar(20) NOT NULL,
+  `rek` varchar(50) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `date_input` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `supplier`
+--
+
+INSERT INTO `supplier` (`id_supp`, `nm_supp`, `alamat`, `telp`, `fax`, `rek`, `email`, `date_input`) VALUES
+('SUP001', 'PT. Tonggak Ampuh', 'Gunung Putri Bogor Jawa Barat', '085715887704', '02159309136', '155- Bank Mandiri', 'savedokumen@gmail.com', '2016-08-02'),
+('SUP002', 'PT. Alum Central Mandiri', 'Balaraja Tangerang Banten Indonesia', '085715887704', '02159309136', '155- Bank Mandiri', 'admin@bandarsip.com', '2016-08-23'),
+('SUP003', 'PT. Intisiar Solusindo', 'Jakarta Indonesia', '085715887704', '02159309136', '155-000064283-8 Bank mandiri', 'hendriyulianto1992@gmail.com', '2016-08-23'),
+('SUP004', 'PT.  Soll Marina Properti Indonesia', 'JL. Tali Raya NO. 35 Kota Bambu Selatan  Pal Merah Jakarta', '085715887704', '02159309136', 'Bank Bukopin 100502461', 'hendriyulianto1992@gmail.com', '2016-08-23'),
+('SUP005', 'PT.  PLN (Persero) Distribusi Banten Area Teluk Naga', 'Jl. Raya Sepatan No. 17 Sepatan Tangerang', '085715887704', '02159309136', '155-000064283-8 Bank Mandiri', 'putimekarbersama@yahoo.co.id', '2016-08-23');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
 --
 
 CREATE TABLE IF NOT EXISTS `user` (
@@ -65,7 +117,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`user_id`, `nm_lengkap`, `email`, `telp`, `level`, `date_reg`, `password`) VALUES
@@ -77,16 +129,28 @@ INSERT INTO `user` (`user_id`, `nm_lengkap`, `email`, `telp`, `level`, `date_reg
 --
 
 --
+-- Indexes for table `material`
+--
+ALTER TABLE `material`
+ ADD PRIMARY KEY (`id_mat`);
+
+--
 -- Indexes for table `menu`
 --
 ALTER TABLE `menu`
-  ADD PRIMARY KEY (`id_menu`);
+ ADD PRIMARY KEY (`id_menu`);
+
+--
+-- Indexes for table `supplier`
+--
+ALTER TABLE `supplier`
+ ADD PRIMARY KEY (`id_supp`);
 
 --
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`user_id`);
+ ADD PRIMARY KEY (`user_id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

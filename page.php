@@ -1,17 +1,13 @@
 <?php
 //error_reporting(0);
 session_start();
-include'class/hero_class.php';
+include'class/supplier_class.php';
 include'class/function.php';
 $db = new Database();
-// koneksi ke MySQL via method
 $db->connectMySQL();
-// script untuk user taruh sisi bos hahha semangat untuk kodingya
 $user = new User();
-#$laporan = new laporan();
 $menu = new menu();
-#session nama lengkap
-//$nm_lengkap = $_SESSION['fullname'];
+$supplier = new supplier();
 if (!$user->get_sesi())
 {
 header("location:login.php");
