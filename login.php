@@ -1,7 +1,7 @@
 <?php  
 error_reporting(0);
 session_start();
-include_once'class/hero_class.php';
+include_once'class/supplier_class.php';
 // instance objek db dan user
 $user = new User();
 $db = new Database();

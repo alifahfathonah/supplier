@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 23, 2016 at 12:01 PM
+-- Generation Time: Aug 24, 2016 at 06:58 AM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -19,6 +19,29 @@ SET time_zone = "+00:00";
 --
 -- Database: `59. supplier`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `harga`
+--
+
+CREATE TABLE IF NOT EXISTS `harga` (
+`id_harga` int(5) NOT NULL,
+  `id_mat` varchar(10) NOT NULL,
+  `harga` double NOT NULL,
+  `note` varchar(30) NOT NULL,
+  `date_up` date NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `harga`
+--
+
+INSERT INTO `harga` (`id_harga`, `id_mat`, `harga`, `note`, `date_up`) VALUES
+(1, 'MAT0002', 10000000, 'harga baru', '2016-05-14'),
+(2, 'MAT0002', 20000, 'harga baru', '2016-05-14'),
+(3, 'MAT0013', 107000, '-', '2016-08-25');
 
 -- --------------------------------------------------------
 
@@ -42,7 +65,16 @@ INSERT INTO `material` (`id_mat`, `id_supp`, `nm_mat`, `satuan`, `keyword`) VALU
 ('MAT0001', 'SUP001', 'Tiang listrik', 'Batang', 'tiang 9/200'),
 ('MAT0002', 'SUP002', 'Batu pengaman PLN', 'Buah', 'batu'),
 ('MAT0003', 'SUP003', 'Cyber Lock', 'Buah', 'Cyber, gembok, pln'),
-('MAT0004', 'SUP002', 'Kanal UNP 150', 'Batang', 'kanal, unp');
+('MAT0004', 'SUP002', 'Kanal UNP 150', 'Batang', 'kanal, unp'),
+('MAT0005', 'SUP005', 'Pipa Air 2 1/2" x 1.6 mm - 6 M (1.2mm)', 'Batang', 'Pipa galvanize, pipa pvc'),
+('MAT0006', 'SUP003', 'SOON-T 1000 W', 'Buah', 'lampu soon pju'),
+('MAT0007', 'SUP002', 'BSN 1000 L 02', 'Buah', 'lampu pju soon'),
+('MAT0008', 'SUP003', 'SN 56', 'Buah', 'LAMPU PJU'),
+('MAT0009', 'SUP002', 'SN-58', 'Buah', 'Lampu PJU'),
+('MAT0010', 'SUP002', 'CP 32 ETC28 2', 'Buah 2', 'Lampu Pju 2'),
+('MAT0011', 'SUP006', 'SON-T 150 W', 'Buah', 'Lampu Pju'),
+('MAT0012', 'SUP006', 'Lampu Soon Philips', 'Buah', 'Lampu Pju'),
+('MAT0013', 'SUP005', 'Pipa Air 1 1/2" x 1.6 mm - 6 M (1.2mm)', 'Batang', 'Pipa galvanize, pipa pvc');
 
 -- --------------------------------------------------------
 
@@ -98,7 +130,8 @@ INSERT INTO `supplier` (`id_supp`, `nm_supp`, `alamat`, `telp`, `fax`, `rek`, `e
 ('SUP002', 'PT. Alum Central Mandiri', 'Balaraja Tangerang Banten Indonesia', '085715887704', '02159309136', '155- Bank Mandiri', 'admin@bandarsip.com', '2016-08-23'),
 ('SUP003', 'PT. Intisiar Solusindo', 'Jakarta Indonesia', '085715887704', '02159309136', '155-000064283-8 Bank mandiri', 'hendriyulianto1992@gmail.com', '2016-08-23'),
 ('SUP004', 'PT.  Soll Marina Properti Indonesia', 'JL. Tali Raya NO. 35 Kota Bambu Selatan  Pal Merah Jakarta', '085715887704', '02159309136', 'Bank Bukopin 100502461', 'hendriyulianto1992@gmail.com', '2016-08-23'),
-('SUP005', 'PT.  PLN (Persero) Distribusi Banten Area Teluk Naga', 'Jl. Raya Sepatan No. 17 Sepatan Tangerang', '085715887704', '02159309136', '155-000064283-8 Bank Mandiri', 'putimekarbersama@yahoo.co.id', '2016-08-23');
+('SUP005', 'Depo Baja - Cipondoh', 'Cipondh Tangerang', '021 22260777', '021 22260777', '-', '-', '2016-08-23'),
+('SUP006', 'PT.  Putra Cahaya sejati', 'Jl. Gunung sahari raya No. 41 Gunung sahari ', '021-5902758', '021-59302758', '155-000064283-8 Bank mandiri', 'savedokumen@gmail.com', '2016-08-24');
 
 -- --------------------------------------------------------
 
@@ -129,6 +162,12 @@ INSERT INTO `user` (`user_id`, `nm_lengkap`, `email`, `telp`, `level`, `date_reg
 --
 
 --
+-- Indexes for table `harga`
+--
+ALTER TABLE `harga`
+ ADD PRIMARY KEY (`id_harga`);
+
+--
 -- Indexes for table `material`
 --
 ALTER TABLE `material`
@@ -152,6 +191,15 @@ ALTER TABLE `supplier`
 ALTER TABLE `user`
  ADD PRIMARY KEY (`user_id`);
 
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `harga`
+--
+ALTER TABLE `harga`
+MODIFY `id_harga` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

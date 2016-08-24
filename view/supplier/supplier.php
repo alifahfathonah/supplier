@@ -8,14 +8,13 @@ $supplier = new supplier();
  <table id="example" class="table table-hover">
     <thead>
       <tr>
-        <th>ID SUPP</th>
+        
         <th>NAMA SUPPLIER</th>
         <th>ALAMAT</th>
         <th>TELP</th>
         <th>FAX</th>
         <th>REK</th>
         <th>EMAIL</th>
-        <th>DATE INPUT</th>
         <th>AKSI</th>
       </tr>
     </thead>
@@ -26,14 +25,13 @@ $supplier = new supplier();
       foreach($arraysupplier as $d) {
     ?>
       <tr>
-        <td><?php echo $d['id_supp']; ?></td>
+        
         <td><?php echo $d['nm_supp']; ?></td>
         <td><?php echo $d['alamat']; ?></td>
         <td><?php echo $d['telp']; ?></td>
         <td><?php echo $d['fax']; ?></td>
         <td><?php echo $d['rek']; ?></td>
         <td><?php echo $d['email']; ?></td>
-        <td><?php echo $d['date_input']; ?></td>
         <td><a href="" data-id="<?php echo $d['id_supp']; ?>" class="btn btn-primary btn-xs ubah-supplier" role="button">Ubah</a></td>
         
       </tr>
