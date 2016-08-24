@@ -23,7 +23,7 @@ $harga = new harga();
     ?>
       <tr>
         <td><?php echo $d['id_mat']; ?></td>
-        <td align="right"><?php echo rupiah($d['harga']); ?></td>
+        <td><?php echo rupiah($d['harga']); ?></td>
         <td><?php echo dateToindo($d['date_up']); ?></td>
         <td><?php echo $d['note']; ?></td>
       </tr>

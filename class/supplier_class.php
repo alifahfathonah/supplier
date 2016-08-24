@@ -90,7 +90,9 @@
       $hasil=mysql_query($query);
     }
       function showmat(){
-    $query = mysql_query("SELECT a.*, b.* FROM material a, supplier b WHERE a.id_supp=b.id_supp");
+    $query = mysql_query("SELECT a.*, b.*
+     # (SELECT harga AS hrg FROM harga WHERE harga.id_mat=a.id_mat)hrg
+     FROM material a, supplier b WHERE a.id_supp=b.id_supp");
     while($row=mysql_fetch_array($query))
       $data[]=$row;
     if(isset($data)){
@@ -118,7 +120,7 @@ class Harga {
       $hasil=mysql_query($query);
     }
         function showharga($id_mat){
-    $query = mysql_query("SELECT a.*, b.* FROM harga a, material b WHERE a.id_mat=b.id_mat AND id_mat='MAT0001'");
+    $query = mysql_query("SELECT a.* FROM harga a WHERE a.id_mat='$_GET[id_mat]'");
     while($row=mysql_fetch_array($query))
       $data[]=$row;
     if(isset($data)){
