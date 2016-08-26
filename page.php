@@ -26,7 +26,7 @@ header("location:login.php");
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2.0">
 	<!--<meta charset="utf-8">
 	<meta name="viewport" content="initial-scale=1.0, maximum-scale=2.0">-->
-	<title>SUPPLIER SYSTEM</title>
+	<title>Supplier Management System</title>
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/dataTables.bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/dataTables.tableTools.css">
@@ -168,10 +168,9 @@ $(document).ready(function() {
       !-->
 <div class="container-fluid">
     <br>
-<p>
 <br>
 <br>
-<img src="images/logo.png" width="200">
+<a href="page.php"><img src="images/logo.png" width="200"></a>
 <hr>
   
 		 <?php
@@ -187,7 +186,8 @@ $(document).ready(function() {
 <footer>
       <div class="container-fluid">
         <hr>
-       <small>Copyright &copy;@hendrimamang <?php echo date('Y'); ?></small>
+        <p class="text-muted">Copyright &copy;hendrimamang@gmail.com <?php echo date('Y'); ?></p>
+       
       </footer>
       <hr>
     </div>

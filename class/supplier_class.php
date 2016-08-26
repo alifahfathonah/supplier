@@ -54,10 +54,10 @@
  */
 
  class Supplier {
-     function addsupp($id_supp,$nm_supp,$alamat,$telp,$fax,$rek,$email,$date_input)
+     function addsupp($id_supp,$nm_supp,$marketing,$alamat,$telp,$fax,$rek,$email,$date_input)
     {
-      $query="INSERT INTO supplier (id_supp,nm_supp,alamat,telp,fax,rek,email,date_input)
-      VALUES('$id_supp','$nm_supp','$alamat','$telp','$fax','$rek','$email','$date_input')";
+      $query="INSERT INTO supplier (id_supp,nm_supp,marketing,alamat,telp,fax,rek,email,date_input)
+      VALUES('$id_supp','$nm_supp','$marketing','$alamat','$telp','$fax','$rek','$email','$date_input')";
       $hasil=mysql_query($query);
     }
       function showsupp(){
@@ -77,8 +77,8 @@
         return $data;
       }
     }
-    function updatesupp($id_supp,$nm_supp,$alamat,$telp,$fax,$rek,$email,$date_input){
-      $query=mysql_query("UPDATE supplier SET nm_supp='$nm_supp',alamat='$alamat',telp='$telp', fax='$fax', rek='$rek',
+    function updatesupp($id_supp,$nm_supp,$marketing,$alamat,$telp,$fax,$rek,$email,$date_input){
+      $query=mysql_query("UPDATE supplier SET nm_supp='$nm_supp',marketing='$marketing',alamat='$alamat',telp='$telp', fax='$fax', rek='$rek',
         email='$email', date_input='$date_input' WHERE id_supp='$id_supp'");
     }
 }
@@ -92,7 +92,7 @@
       function showmat(){
     $query = mysql_query("SELECT a.*, b.*
      # (SELECT harga AS hrg FROM harga WHERE harga.id_mat=a.id_mat)hrg
-     FROM material a, supplier b WHERE a.id_supp=b.id_supp");
+     FROM material a, supplier b WHERE a.id_supp=b.id_supp ORDER BY b.id_supp");
     while($row=mysql_fetch_array($query))
       $data[]=$row;
     if(isset($data)){
@@ -129,6 +129,59 @@ class Harga {
   }
 
 }
+
+class Datafile  {
+  
+  function tambahDatafile($id_mat,$nama_file,$gambar)
+      {
+      $query="INSERT INTO datafile(id_mat,nama_file,gambar)
+      VALUES('$id_mat','$nama_file','$gambar')";
+      move_uploaded_file($_FILES['gambar']['tmp_name'],"file_gambar/".$gambar);
+      #if ($_FILES['gambar']['name']) {
+      #     $newname = "file_gambar/".date('YmdHis_').$_FILES['gambar']['name'];
+      #     $copied = copy($_FILES['gambar']['tmp_name'], $newname);
+      #if(!$copied){
+      #echo "error";
+      #}
+      #}
+      $hasil= mysql_query($query);
+  }
+      function tampilDatafile($id_mat) {
+      $query = mysql_query("SELECT * FROM datafile WHERE id_mat='$_GET[id_mat]' ");
+      while($row=mysql_fetch_array($query))
+      $data[]=$row;
+      return $data;
+  }
+
+  function bacaDatafile ($kode_file){
+  $query=mysql_query("SELECT * FROM datafile WHERE kode_file='$_GET[kode_file]'");
+  $data=mysql_fetch_array($query);
+      $data[]=$row;
+      if(isset($data)){
+        return $data;
+      }
+  }
+  //update data file
+  function updateDatafile ($kode_file,$id_mat,$nama_file,$gambar){
+  if (empty($gambar)){
+      $query=mysql_query("UPDATE datafile SET
+      id_mat='$id_mat',nama_file='$nama_file'WHERE kode_file='$kode_file'");
+      $hasil= mysql_query($query);
+       echo"<meta http-equiv='refresh' content='0;url=?page=datafile/file_view&id_mat=".$_GET['id_mat']."'>";
+  }
+  else 
+  {
+      $query=mysql_query("UPDATE datafile SET
+      id_mat='$id_mat',nama_file='$nama_file',gambar='$gambar' WHERE kode_file='$kode_file'");
+      move_uploaded_file($_FILES['gambar']['tmp_name'],"file_gambar/".$gambar);
+      $hasil= mysql_query($query);
+       echo"<meta http-equiv='refresh' content='0;url=?page=datafile/file_view&id_mat=".$_GET['id_mat']."'>";
+  }
+  }
+  function hapusfile($kode_file) {
+    $query = mysql_query("DELETE FROM datafile WHERE kode_file='$kode_file'");
+  }
+  }
 
 
   class Menu

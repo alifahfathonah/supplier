@@ -21,6 +21,18 @@
                     }   
                 );
             });
+                $(document).on('click','.d-supplier',function(e){
+                e.preventDefault();
+                $("#modal-detail-supplier").modal('show');
+                 $(".modal-title").html('DETAIL SUPPLIER');
+                $.get("view/supplier/supplier_detail.php",
+                {id_supp:$(this).attr('data-id')},
+                 function(html){
+                        $(".modal-body").html(html);
+                    }   
+                );
+            });
+
                 $(document).on('click','.add-material',function(e){
                 e.preventDefault();
                 $("#modal-material").modal('show');
@@ -54,7 +66,7 @@
                     }   
                 );
             });
-                         $(document).on('click','.detail-harga',function(e){
+                $(document).on('click','.detail-harga',function(e){
                 e.preventDefault();
                 $("#modal-detail-harga").modal('show');
                  $(".modal-title").html('DETAIL HARGA');
@@ -65,5 +77,28 @@
                     }   
                 );
             });
+                $(document).on('click','.upload-gambar',function(e){
+                e.preventDefault();
+                $("#modal-upload-gambar").modal('show');
+                 $(".modal-title").html('UPLOAD GAMBAR');
+                $.get("view/gambar/gambar_form.php",
+                {id_mat:$(this).attr('data-id')},
+                 function(html){
+                        $(".modal-body").html(html);
+                    }   
+                );
+            });
+                 $(document).on('click','.lihat-gambar',function(e){
+                e.preventDefault();
+                $("#modal-lihat-gambar").modal('show');
+                 $(".modal-title").html('LIHAT GAMBAR');
+                $.get("view/gambar/gambar_lihat.php",
+                {id_mat:$(this).attr('data-id')},
+                 function(html){
+                        $(".modal-body").html(html);
+                    }   
+                );
+            });
+    
          
         });

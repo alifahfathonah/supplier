@@ -10,7 +10,7 @@ $supplier = new supplier();
       <tr>
         
         <th>NAMA SUPPLIER</th>
-        <th>ALAMAT</th>
+        <th>MARKETING</th>
         <th>TELP</th>
         <th>FAX</th>
         <th>REK</th>
@@ -26,14 +26,33 @@ $supplier = new supplier();
     ?>
       <tr>
         
-        <td><?php echo $d['nm_supp']; ?></td>
-        <td><?php echo $d['alamat']; ?></td>
-        <td><?php echo $d['telp']; ?></td>
-        <td><?php echo $d['fax']; ?></td>
+        <td>
+           <button type="button" class="btn btn-info btn-xs d-supplier" data-id="<?php echo $d['id_supp']; ?>">
+          <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+          </button>
+          <?php echo $d['nm_supp']; ?></td>
+        <td>
+        
+          <button type="button" class="btn btn-success btn-xs">
+          <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+          </button>
+          <?php echo $d['marketing']; ?></td>
+        <td>
+          <button type="button" class="btn btn-info btn-xs">
+          <span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span>
+          </button>
+          <?php echo $d['telp']; ?></td>
+        <td>
+          <button type="button" class="btn btn-info btn-xs">
+          <span class="glyphicon glyphicon-duplicate" aria-hidden="true"></span>
+          </button>
+          <?php echo $d['fax']; ?></td>
         <td><?php echo $d['rek']; ?></td>
         <td><?php echo $d['email']; ?></td>
-        <td><a href="" data-id="<?php echo $d['id_supp']; ?>" class="btn btn-primary btn-xs ubah-supplier" role="button">Ubah</a></td>
-        
+        <td>
+           <button type="button" class="btn btn-info btn-xs ubah-supplier" data-id="<?php echo $d['id_supp']; ?>">
+          <span class="glyphicon glyphicon-link" aria-hidden="true"></span>
+          </button>        
       </tr>
       <?php 
   }
@@ -65,6 +84,7 @@ $supplier = new supplier();
   $supplier->addsupp(
   $_POST['id_supp'],  
   $_POST['nm_supp'],
+  $_POST['marketing'],
   $_POST['alamat'],
   $_POST['telp'],
   $_POST['fax'],
@@ -99,6 +119,7 @@ $supplier = new supplier();
   $supplier->updatesupp(
   $_POST['id_supp'],  
   $_POST['nm_supp'],
+   $_POST['marketing'],
   $_POST['alamat'],
   $_POST['telp'],
   $_POST['fax'],
@@ -110,4 +131,20 @@ $supplier = new supplier();
 ?>
             </div>
         </div>
-
+        <div class="modal fade" id="modal-detail-supplier" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <form action="" method="post">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel"></h4>
+                    </div>
+                    <div class="modal-body">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>

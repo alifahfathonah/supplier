@@ -10,6 +10,10 @@ $supplier = new supplier();
             <input type="hidden" class="form-control" name="id_supp" value="<?php echo kdauto("supplier","SUP"); ?>">
             <input type="text" class="form-control" name="nm_supp" required>
           </div>
+            <div class="form-group">
+            <label for="recipient-name" class="control-label">Nama Marketing</label>
+            <input type="text" class="form-control" name="marketing" required>
+          </div>
            <div class="form-group">
             <label for="recipient-name" class="control-label">Alamat lengkap</label>
             <input type="text" class="form-control" name="alamat" required>

@@ -12,6 +12,10 @@ $d  = $supplier->bacasupp($id_supp);
             <input type="text" class="form-control" name="nm_supp" value="<?php echo $d['nm_supp']; ?>" required>
           </div>
            <div class="form-group">
+            <label for="recipient-name" class="control-label">Nama Marketing</label>
+            <input type="text" class="form-control" name="marketing" value="<?php echo $d['marketing']; ?>" required>
+          </div>
+           <div class="form-group">
             <label for="recipient-name" class="control-label">Alamat lengkap</label>
             <input type="text" class="form-control" name="alamat" value="<?php echo $d['alamat']; ?>" required>
           </div>

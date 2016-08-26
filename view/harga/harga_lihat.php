@@ -5,7 +5,12 @@ $db = new Database();
 $db->connectMySQL();
 $supplier = new supplier();
 $harga = new harga();
+$material = new material();
+$mat = $material->bacamat($id_mat);
 ?>
+<div class="alert alert-success" role="alert">
+<?php echo $mat['nm_mat']; ?> || <?php echo $mat['nm_supp']; ?>
+</div>
  <table id="example" class="table table-hover">
     <thead>
       <tr>
