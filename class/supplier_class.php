@@ -61,7 +61,7 @@
       $hasil=mysql_query($query);
     }
       function showsupp(){
-    $query = mysql_query("SELECT * FROM supplier");
+    $query = mysql_query("SELECT * FROM supplier ORDER BY nm_supp");
     while($row=mysql_fetch_array($query))
       $data[]=$row;
     if(isset($data)){

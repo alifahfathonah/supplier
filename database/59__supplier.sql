@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 25, 2016 at 12:04 PM
+-- Generation Time: Sep 04, 2016 at 07:07 AM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -31,14 +31,14 @@ CREATE TABLE IF NOT EXISTS `datafile` (
   `id_mat` varchar(10) COLLATE latin1_general_ci NOT NULL,
   `nama_file` varchar(100) COLLATE latin1_general_ci NOT NULL,
   `gambar` text COLLATE latin1_general_ci NOT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 --
 -- Dumping data for table `datafile`
 --
 
 INSERT INTO `datafile` (`kode_file`, `id_mat`, `nama_file`, `gambar`) VALUES
-(6, 'MAT0002', 'SURAT PERINTAH KERJA', 'MAT0002_HENDRI KP. GEBANG BARU.JPG');
+(7, 'MAT0014', 'Pipa Besi Hitam Untuk tiang PJU', 'MAT0014_photo_2016-08-26_13-59-20.jpg');
 
 -- --------------------------------------------------------
 
@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS `harga` (
   `harga` double NOT NULL,
   `note` varchar(30) NOT NULL,
   `date_up` date NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `harga`
@@ -81,7 +81,16 @@ INSERT INTO `harga` (`id_harga`, `id_mat`, `harga`, `note`, `date_up`) VALUES
 (23, 'MAT0021', 89000, 'Harga / Batang', '2016-08-25'),
 (24, 'MAT0022', 46000, 'Per batang', '2016-08-25'),
 (25, 'MAT0023', 88000, 'Per batang', '2016-08-25'),
-(26, 'MAT0009', 42500, 'Per batang', '2016-08-25');
+(26, 'MAT0009', 42500, 'Per batang', '2016-08-25'),
+(27, 'MAT0024', 335000, 'Panjang Pipa 6 Mtr / Batang', '2016-06-09'),
+(28, 'MAT0025', 95000, 'Panjang Pipa 6 Mtr / Batang', '2016-06-09'),
+(29, 'MAT0026', 180000, 'Panjang Pipa 6 Mtr / Batang', '2016-06-09'),
+(30, 'MAT0032', 2500000, 'Harga Terpasang', '2015-08-26'),
+(31, 'MAT0030', 3100000, 'Harga Terpasang', '2015-08-26'),
+(32, 'MAT0029', 4000000, 'Harga Terpasang', '2015-08-26'),
+(33, 'MAT0031', 4000000, 'Harga Terpasang', '2015-08-26'),
+(34, 'MAT0028', 4500000, 'Harga Terpasang', '2015-08-26'),
+(35, 'MAT0027', 4750000, 'Harga Terpasang', '2015-08-26');
 
 -- --------------------------------------------------------
 
@@ -115,16 +124,25 @@ INSERT INTO `material` (`id_mat`, `id_supp`, `nm_mat`, `satuan`, `keyword`) VALU
 ('MAT0011', 'SUP007', 'Jasa Sertifikasi Ketenagalistrikan SLO TM 20 KV', 'Segmen', 'SLO'),
 ('MAT0012', 'SUP006', 'Incoming Cubicle Type IS/C410 Merk Schneider ', 'Unit', 'Kubikel'),
 ('MAT0013', 'SUP005', 'Pipa Air 1 1/2" x 1.6 mm - 6 M (1.2mm)', 'Batang', 'Pipa galvanize, pipa pvc'),
-('MAT0014', 'SUP005', 'Pipa Besi 5 inc 2.3 mm', 'Batang', 'Pipa 6 Meter / Unit'),
-('MAT0015', 'SUP005', 'Pipa Besi 4 Inc 1.6 mm', 'Batang', 'Pipa Besi'),
-('MAT0016', 'SUP005', 'Pipa Besi 3 Inc 1.6 mm', 'Batang', 'Pipa besi'),
+('MAT0014', 'SUP005', 'Pipa Besi Hitam 5 inc 2.3 mm', 'Batang', 'Pipa 6 Meter / Unit'),
+('MAT0015', 'SUP005', 'Pipa Besi Hitam 4 Inc 1.6 mm', 'Batang', 'Pipa Besi'),
+('MAT0016', 'SUP005', 'Pipa Besi Hitam 3 Inc 1.6 mm', 'Batang', 'Pipa besi'),
 ('MAT0017', 'SUP005', 'UNP 120 x 55 x 7 mm - (6m) 50 Kg', 'Batang', 'Kanal UNP'),
 ('MAT0018', 'SUP005', 'UNP 100 x 55 x 5 mm - (6m) 36 Kg', 'Batang', 'Kanal UNP'),
 ('MAT0019', 'SUP005', 'UNP 80 x 45 x 5 mm - (6m) 25 KG', 'Batang', 'Kanal UNP'),
 ('MAT0020', 'SUP005', 'UNP 150 x 75 x 6.5 mm - (6m) 78 Kg', 'Batang', 'Kanal UNP'),
 ('MAT0021', 'SUP005', 'Siku 50 x 50 x 5 mm 6 Meter EQTF (48/4.6) 15 kG', 'Batang', 'Besi Siku'),
 ('MAT0022', 'SUP005', 'Beton 10 mm - 12 Meter RS (Tol 0.5 mm)', 'Batang', 'Besi behel'),
-('MAT0023', 'SUP005', 'Strip 5/50 - 6 Meter', 'Batang', 'Besi Strip');
+('MAT0023', 'SUP005', 'Strip 5/50 - 6 Meter', 'Batang', 'Besi Strip'),
+('MAT0024', 'SUP008', 'Pipa Galvanis 4 inc 6 Mtr', 'Batang', 'Pipa'),
+('MAT0025', 'SUP008', 'Pipa Galvanis 1.5 inc 6 Mtr', 'Batang', 'Pipa'),
+('MAT0026', 'SUP008', 'Pipa Galvanis 2.5 inc 6 Mtr', 'Batang', 'pipa'),
+('MAT0027', 'SUP001', 'Tiang Beton Type 11 M - 500 daN', 'Batang', 'Tiang Beton'),
+('MAT0028', 'SUP001', 'Tiang Beton Type 11 M - 350 daN', 'Batang', 'Tiang Beton'),
+('MAT0029', 'SUP001', 'Tiang Beton Type 9 M - 500 daN', 'Batang', 'Tiang Beton'),
+('MAT0030', 'SUP001', 'Tiang Beton Type 9 M - 350 daN', 'Batang', 'Tiang Beton'),
+('MAT0031', 'SUP001', 'Tiang Beton Type 11 M - 200 daN', 'Batang', 'Tiang Beton'),
+('MAT0032', 'SUP001', 'Tiang Beton Type 9 M - 200 daN', 'Batang', 'Tiang Beton');
 
 -- --------------------------------------------------------
 
@@ -181,9 +199,12 @@ INSERT INTO `supplier` (`id_supp`, `nm_supp`, `marketing`, `alamat`, `telp`, `fa
 ('SUP002', 'PT. Trafindo Prima Perkasa', '', 'Factory I :  Jl. Siliwangi RT. 04/04 Kel. Alam Jaya Kec. Jatiuwung Tangerang', '021-5903801', '021-5900601', 'Bank BCA Kcu : Gajah Mada : 012.301.028.8 (IDR) Ba', 'www.trafoindonesia.com', '2016-08-23'),
 ('SUP003', 'PT. Alum Central Mandiri Lestari', '', 'Jl. Raya Serang KM. 25.5 Desa Kaluwung No. 08 Kel. Cisereh Kec. Tigaraksa Tangerang (Kawasan Industri Kav. benua Permai Lestari RT. 10/04)', '021-5953482', '021-5953483', 'Bank BCA : Cabang Green Garden : 253.301.1667', '-', '2016-08-23'),
 ('SUP004', 'PT. D&B Indonesia', 'Bpk Vidi', 'Jl. Jendral Sudirman Kav. 33A Jakarta 10220 - Indonesia ', '021 57900979', '021-57900938', '(IDR) Bank Mandiri - 104-000-3000-994  (USD) 104-0', 'www.dnb.co.id', '2016-08-23'),
-('SUP005', 'Depo Baja - Cipondoh', 'Ibu Yovi', 'Cipondh Tangerang', '021 22260777', '021 22260777', '-', '-', '2016-08-23'),
+('SUP005', 'Depo Baja - Cipondoh', 'Ibu Yovi', 'Jl. KH. Ashari No. 5B Cipondoh Tangerang', '021 22260777', '021 22260777', '-', '-', '2016-08-23'),
 ('SUP006', 'CV. Vircho Jaya Abadi', 'Ibu Sari Dewi', 'Jl. Pengasinan Raya No. 02 No. 86 Rawa Lumbu Bekasi', '021 8646328', '021 864328', 'Bank Permata : 0701292154', 'vircho_ja@hotmail.com', '2016-08-24'),
-('SUP007', 'PT. Central Energi Positive', '', 'Jl. KH A Dahlan No. 4C Jakarta Timur 13140', '021 8580406', '021 58916105', 'Bank Bca : 342.3124888', 'centerpos888@yahoo.com', '2016-08-25');
+('SUP007', 'PT. Central Energi Positive', '', 'Jl. KH A Dahlan No. 4C Jakarta Timur 13140', '021 8580406', '021 58916105', 'Bank Bca : 342.3124888', 'centerpos888@yahoo.com', '2016-08-25'),
+('SUP008', 'Camar Logam', 'Unknow', 'Jl. Raya Gatot SUbroto KM. 03 Cibodas Tangerang', '021 5514647 5525262', '021 5514648', '-', '-', '2016-08-26'),
+('SUP009', 'Toko Besi Citra Raya Sejahtera', '-', '-', '-', '-', '-', '-', '2016-08-26'),
+('SUP010', 'PT.  Putra Cahaya sejati', 'Bpk. Andri', 'Jl. Gunung sahari raya No. 41 Jakarta Pusat', '021 6592031', '021 5692046', 'Bank Mandiri - 119-00 788 7888 9', 'info@putra-cs.com', '2016-08-26');
 
 -- --------------------------------------------------------
 
@@ -257,12 +278,12 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `datafile`
 --
 ALTER TABLE `datafile`
-MODIFY `kode_file` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+MODIFY `kode_file` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `harga`
 --
 ALTER TABLE `harga`
-MODIFY `id_harga` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=27;
+MODIFY `id_harga` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=36;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

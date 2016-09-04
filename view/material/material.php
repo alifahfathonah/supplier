@@ -49,10 +49,10 @@ if (isset($_GET['aksi']))
         <td><?php echo $d['satuan']; ?></td>
         <td>
           <button type="button" class="btn btn-info btn-xs lihat-gambar" data-id="<?php echo $d['id_mat']; ?>">
-          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+          <span class="glyphicon glyphicon-camera" aria-hidden="true"></span>
           </button>
           <button type="button" class="btn btn-info btn-xs upload-gambar" data-id="<?php echo $d['id_mat']; ?>">
-          <span class="glyphicon glyphicon-camera" aria-hidden="true"></span>
+          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
           </button>
           
 
